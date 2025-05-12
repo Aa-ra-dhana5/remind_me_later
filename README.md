@@ -73,38 +73,45 @@ npm install
 Create a `.env` file:
 
 ```env
+# App
 PORT=5000
-MONGO_URI=your_mongodb_connection_string
-EMAIL_USER=your_email@example.com
-EMAIL_PASS=your_email_app_password
-SMS_API_KEY=your_sms_api_key
+NODE_ENV=development
+
+# JWT for Auth
+JWT_SECRET=chaiorme
+
+# MongoDB
+MONGODB_URI=mongodb:27017/remind-me-later
+
+# Email (Nodemailer)
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=587
+EMAIL_USER=your-mail@gmail.com
+EMAIL_PASS=your-app-password  //on 2-step-verification on you email and genrate app password 
+
+# Msg91 SMS
+MSG91_AUTH_KEY=your_msg91-acc-auth-key
+SENDER_ID=your-genrated-sender-id
+ROUTE=4
+
 ```
 
 Start the server:
 
 ```bash
-node server.js
+cd ../server
+npm run dev
 ```
 
-Start the background scheduler to send due reminders:
-
-```bash
-node scheduler.js
-```
-
----
 
 ### 3. Frontend Setup
 
 ```bash
-cd ../frontend
+cd ../client
 npm install
 npm run dev
 ```
 
-Access the app at: [http://localhost:5173](http://localhost:5173)
-
----
 
 ## 🧪 API Endpoints
 
@@ -117,9 +124,8 @@ Access the app at: [http://localhost:5173](http://localhost:5173)
 
 ## 📸 Screenshots
 
-> Make sure to upload screenshots to `frontend/public/screenshots/` folder and replace the below links.
 
-![Dashboard View](./frontend/public/screenshots/dashboard.png)
+![Dashboard View](./client/public/screenshots/dashboard.png)
 *Main dashboard displaying all reminders*
 
 ---
@@ -137,7 +143,6 @@ Access the app at: [http://localhost:5173](http://localhost:5173)
 ## 🔮 Future Improvements
 
 - Add user login & auth (JWT-based)
-- Allow editing or deleting reminders
 - Schedule recurring reminders
 - Store delivery logs and failure reports
 
