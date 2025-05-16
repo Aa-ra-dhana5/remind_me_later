@@ -10,13 +10,15 @@ console.log(
 );
 
 const transporter = nodemailer.createTransport({
-  host: process.env.EMAIL_HOST,
-  port: process.env.EMAIL_PORT,
-  secure: process.env.EMAIL_PORT === "465", // true for port 465, false for others
+    host: process.env.EMAIL_HOST || 'smtp.gmail.com',
+
+  port: process.env.EMAIL_PORT || 465,
+   secure: process.env.EMAIL_PORT === '465', // true for port 465
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
   },
+  debug: true, 
 });
 
 transporter.verify((error, success) => {
