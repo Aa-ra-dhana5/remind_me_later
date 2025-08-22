@@ -1,7 +1,7 @@
 const Reminder = require("../models/Reminder");
 const reminderSchema = require("../validations/reminderValidation");
-const { sendEmail } = require("../services/emailService");
-const sendSMS = require("../services/smsService");
+const { sendEmail } = require("../config/nodemailer");
+const sendSMS = require("../config/msg91");
 
 // Create a new reminder
 const createReminder = async (req, res) => {

@@ -1,7 +1,7 @@
 const cron = require("node-cron");
 const Reminder = require("../models/Reminder");
 const { sendEmail } = require("../config/nodemailer");
-const sendSMS = require("../services/smsService");
+const sendSMS = require("../config/msg91");
 
 cron.schedule("* * * * *", async () => {
   console.log("⏰ Running reminder scheduler...");
