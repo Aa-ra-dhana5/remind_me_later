@@ -22,17 +22,17 @@ function App() {
             <Route
               path="/schedule"
               element={
-                <PrivateRoute>
-                  <Schedule />
-                </PrivateRoute>
+                // <PrivateRoute>
+                <Schedule />
+                //</PrivateRoute>
               }
             />
             <Route
               path="/dashboard"
               element={
-                <PrivateRoute>
-                  <Dashboard />
-                </PrivateRoute>
+                //<PrivateRoute>
+                <Dashboard />
+                //</PrivateRoute>
               }
             />
           </Routes>

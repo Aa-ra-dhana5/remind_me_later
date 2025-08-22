@@ -8,10 +8,9 @@ export default function Dashboard() {
 
   useEffect(() => {
     const fetchReminders = async () => {
+      const apiUrl = import.meta.env.VITE_API_URL;
       try {
-        const res = await fetch(
-          "http://localhost:5000/api/reminders/reminders"
-        );
+        const res = await fetch(`${apiUrl}/reminders/reminders`);
         const data = await res.json();
         if (!res.ok)
           throw new Error(data.message || "Failed to fetch reminders");
